@@ -1,0 +1,12 @@
+name: Simple Push Demo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  show-secret:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Use secret
+      run: echo "Secret: ${{ secrets.MY_SECRET }}"
