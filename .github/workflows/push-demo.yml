@@ -2,14 +2,15 @@ name: Simple Push Demo
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   show-secret:
     runs-on: ubuntu-latest
     steps:
-    - name: Use secret
+    - name: Configure AWS and list S3 buckets
       run: |
-        echo "Secret: ${{ secrets.MY_SECRET }}"
-
-      
+        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws configure set default.region us-east-1
+        aws s3 ls
