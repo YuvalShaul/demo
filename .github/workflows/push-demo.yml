@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Use secret
-      run: echo "Secret: ${{ secrets.MY_SECRET }}"
+      run: |
+        echo "Secret: ${{ secrets.MY_SECRET }}"
 
       
